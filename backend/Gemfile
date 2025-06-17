@@ -1,0 +1,86 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+# Defina a versão do Ruby que você está usando.
+# Isso garante que seu projeto use a mesma versão que você tem instalada via rbenv.
+ruby "3.2.2"
+
+# A versão do Rails que você tem instalada.
+gem "rails", "~> 8.0.2"
+
+# Banco de dados PostgreSQL
+gem "pg", "~> 1.1"
+
+# Servidor web Puma
+gem "puma", ">= 5.0"
+
+# Ferramentas Hotwire para um frontend moderno no Rails
+gem "turbo-rails"
+gem "stimulus-rails"
+
+# Pipeline de assets moderno para Rails (padrão no Rails 7+ e 8)
+gem "propshaft", require: false
+
+# Gems para Active Job (fila de background), Rails.cache e Action Cable
+gem "solid_cache"
+gem "solid_queue"
+gem "solid_cable"
+
+# Para construir APIs JSON
+gem "jbuilder"
+
+# Gems para Active Admin e autenticação (Devise)
+gem "activeadmin", "~> 3.0"
+gem "devise"
+
+# Reduz os tempos de inicialização através de cache
+gem "bootsnap", require: false
+
+# Para deploy com Kamal (se for usar Docker e deploy simplificado)
+gem "kamal", require: false
+
+# Para cache/compressão HTTP e X-Sendfile com Puma
+gem "thruster", require: false
+
+# Active Storage: se for usar upload de arquivos, descomente a linha abaixo e instale ImageMagick/Vips
+# gem "image_processing", "~> 1.2"
+
+# Dependências para Windows/JRuby para fusos horários
+gem "tzinfo-data", platforms: %i[ jruby ]
+
+# Webpacker para gerenciar assets
+gem "webpacker"
+
+# Sprockets para gerenciar assets
+gem "sprockets-rails"
+gem "sprockets", "~> 4.2.0"
+
+# SassC para compilar arquivos SCSS
+gem "sassc-rails"
+
+# --- Grupos de desenvolvimento e teste ---
+
+group :development, :test do
+  # Debugger para Rails
+  gem "debug", platforms: %i[mri], require: "debug/prelude"
+
+  # Análise estática para vulnerabilidades de segurança
+  gem "brakeman", require: false
+
+  # Linter de estilo de código Ruby (para manter seu código limpo e consistente)
+  gem "rubocop-rails-omakase", require: false
+end
+
+group :development do
+  # Console no navegador em páginas de erro
+  gem "web-console"
+end
+
+group :test do
+  # Para testes de sistema (simulam a interação do usuário no navegador)
+  gem "capybara"
+  gem "selenium-webdriver"
+end

@@ -1,0 +1,29 @@
+# Sensitive data
+.roo/
+.env*
+!.env.example
+*.key
+*.secret
+
+# Dependencies
+node_modules/
+/frontend/node_modules/
+/frontend/.next/
+/backend/tmp/
+/backend/log/
+/backend/vendor/
+/backend/.bundle/
+/task-master/node_modules/
+
+# OS files
+.DS_Store
+._.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Database
+/backend/db/*.sqlite3
+/backend/config/master.key
+/backend/config/credentials.yml.enc
