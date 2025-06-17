@@ -1,33 +1,63 @@
 # Solar Admin Panel
 
-Full-stack admin panel built with Rails and Next.js.
+Solar Admin Panel is a full-stack application that combines a Ruby on Rails API with a Next.js front end.
+It is split into two main subprojects and can be run locally for development.
 
-## Project Structure
+## Directory Structure
 
 ```
-.``
-├── backend/      # Rails API with Active Admin
-├── frontend/     # Next.js TypeScript frontend
-└── task-master/  # Project management toolsend
-``` task-master/  # Project management tools
+.
+├── backend/               # Rails API
+└── frontend/              # Next.js application or container directory
+    └── meu-painel-next/   # Next.js project (if present)
 ```
-## Development Setup
-## Technology Stack
+
+The legacy `task-master` folder referenced in previous documentation has been removed.
+
+## Prerequisites
+
+- Ruby 3.2 or newer with Bundler
+- Node.js 18 or newer with npm or yarn
+- PostgreSQL running locally for the API database
+
+## Setup
+
 ### Backend
+
+1. Install dependencies
+   ```bash
+   cd backend
+   bundle install
+   ```
+2. Prepare the database
+   ```bash
+   rails db:setup
+   ```
+3. Start the Rails server
+   ```bash
+   bin/dev
+   # or
+   rails server
+   ```
+
+### Frontend (Next.js)
+
+If the Next.js project is located directly under `frontend/`:
 ```bash
-cd backendils 7.0
-bundle install
-rails db:setup
-rails s- JWT Authentication
+cd frontend
+npm install
+npm run dev
 ```
 
-### Frontend
+If using the nested project:
 ```bash
-cd frontendS
-npm install- React Query
+cd frontend/meu-painel-next
+npm install
 npm run dev
-```## Getting Started
+```
 
-## Development URLssites
-- Backend API: http://localhost:3000
-- Frontend: http://localhost:3001- Frontend: http://localhost:3001
+## Development URLs
+
+- Rails API: <http://localhost:3000>
+- Next.js: <http://localhost:3001>
+
